@@ -18,8 +18,6 @@ def afficher_moyennes_colonnes (dataframe):
     means = dataframe.mean(numeric_only=True)
     print("Moyenne de chaque feature :")
     print(means)
-    return True
-
 
 def afficher_variances_colonnes (dataframe):
     """
@@ -34,7 +32,6 @@ def afficher_variances_colonnes (dataframe):
     variances = dataframe.var(numeric_only=True)
     print("Variance de chaque feature :")
     print(variances)
-    return True
 
 
 def afficher_matrice_covariance (dataframe):
@@ -52,7 +49,14 @@ def afficher_matrice_covariance (dataframe):
     # Afficher la matrice de corrélation
     print("Matrice de corrélation :")
     print(corr_matrix)
-    return True
+
+
+def distribution_variable(dataframe, column):
+    #sbn.catplot(x='country', y=column, kind='box', data=dataframe)
+    sbn.displot(dataframe, x=column)
+    # Afficher les graphiques
+    plt.show()
+
 
 
 def top_countries_by_feature(dataframe, feature, number_element=10, ascending_param=False):
