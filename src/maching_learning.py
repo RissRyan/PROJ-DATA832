@@ -120,7 +120,7 @@ def kmeans_plus_plus_clustering (dataframe, cluster_number) :
         current_cluster_filter = kmean_df["cluster"].isin([i])
         current_cluster = kmean_df[current_cluster_filter].index
         clusters.append(list(current_cluster))
-        print(list(current_cluster))
+        # print(list(current_cluster))
     return clusters
 
 

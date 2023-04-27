@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 import visualisation_donnees as vd
 import maching_learning as ml
+import map as mp
 
 
 ### IMPORTATION DES DONNEES
@@ -33,3 +34,6 @@ dbscan_pipe = Pipeline(('PCA', ml.pca_on_dataframe(country_dataframe),
 ### ANALYSE
 clusters = ml.kmeans_plus_plus_clustering(country_dataframe, 3)
 vd.detailler_clusters(country_dataframe, clusters)
+
+### AFFICHAGE SOUS FORME D'UNE CARTE
+mp.generation_carte(clusters)
