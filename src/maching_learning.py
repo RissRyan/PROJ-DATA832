@@ -115,10 +115,13 @@ def kmeans_plus_plus_clustering (dataframe, cluster_number) :
     plt.show()
 
     # AFFICHER LA LISTE DES PAYS DANS CHAQUE CLUSTER
+    clusters = []
     for i in range (cluster_number):
         current_cluster_filter = kmean_df["cluster"].isin([i])
         current_cluster = kmean_df[current_cluster_filter].index
-        print(current_cluster)
+        clusters.append(list(current_cluster))
+        print(list(current_cluster))
+    return clusters
 
 
 def bdscan_clustering (dataframe, eps, min_samples):

@@ -1,3 +1,4 @@
+import pandas as pd
 import seaborn as sbn
 import matplotlib.pyplot as plt
 
@@ -29,6 +30,22 @@ def afficher_variances_colonnes (dataframe):
     variances = dataframe.var(numeric_only=True)
     print("Variance de chaque feature :")
     print(variances)
+
+def detailler_clusters (dataframe, liste_clusters):
+    """
+    Affiche des détails statistiques sur chacun des clusters.
+        Paramètres :
+            dataframe (pandas.Dataframe) : le dataframe à visualiser
+            liste_clusters (liste) : la liste des clusters
+
+        Aucune sortie
+    """
+
+    for i in enumerate (liste_clusters):
+        cluster_filter = dataframe["country"].isin(liste_clusters[i[0]])
+        sub_dataframe = pd.DataFrame(dataframe[cluster_filter])
+        afficher_moyennes_colonnes(sub_dataframe)
+        afficher_variances_colonnes(sub_dataframe)
 
 
 def afficher_matrice_covariance (dataframe):

@@ -27,6 +27,9 @@ kmean_pipe = Pipeline(('PCA', ml.pca_on_dataframe(country_dataframe),
 kmean_plus_plus_pipe = Pipeline(('PCA', ml.pca_on_dataframe(country_dataframe),
                                 ('kmeans++', ml.kmeans_plus_plus_clustering(country_dataframe, 3))))
 
-
 dbscan_pipe = Pipeline(('PCA', ml.pca_on_dataframe(country_dataframe),
-                       ('bdscan', ml.bdscan_clustering(country_dataframe, 0.4, 3))))
+                       ('bdscan', ml.bdscan_clustering(country_dataframe, 0.45, 4))))
+
+### ANALYSE
+clusters = ml.kmeans_plus_plus_clustering(country_dataframe, 3)
+vd.detailler_clusters(country_dataframe, clusters)
